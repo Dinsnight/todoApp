@@ -37,6 +37,10 @@ function TodoApp({tasks}) {
     localStorage.setItem(tasks, JSON.stringify(newTodos));
   };
 
+  const  completedTask = todos.filter(task => task.completed).length
+  const progress = todos.length ? Math.round((completedTask / todos.length) * 100) : 0
+
+
   return (
     <div>
       <div className="d-flex m-3">
@@ -50,6 +54,20 @@ function TodoApp({tasks}) {
         <button className="btn btn-primary rounded-pill" onClick={addTask}>
           Add
         </button>
+      </div>
+
+      <div className="m-3">
+        <div className="progress" style={{ height: '20px' }}>
+          <div
+              className="progress-bar"
+              style={{ width: `${progress}%` }}
+              aria-valuenow={progress}
+              aria-valuemin="0"
+              aria-valuemax="100"
+          >
+            {progress}%
+          </div>
+        </div>
       </div>
 
       <div className="row g-3 p-4">

@@ -27,14 +27,14 @@ function App() {
         </Link>
         <button
             onClick={toggleBg}
-            className="btn btn-outline ms-3"
+            className={`btn btn-outline ms-3 ${dark ? "text-white " : "text-dark"}`}
         >
           {dark ? "☀ Light" : "🌙 Dark"}
         </button>
         <div>
-          <button onClick={() => i18n.changeLanguage('ru')} className="btn">RU</button>
-          <button onClick={() => i18n.changeLanguage('en')} className="btn">EN</button>
-          <button onClick={() => i18n.changeLanguage('uz')} className="btn">UZ</button>
+          <button onClick={() => i18n.changeLanguage('ru')} className={`btn ${dark ? "text-white " : "text-dark"}`}>RU</button>
+          <button onClick={() => i18n.changeLanguage('en')} className={`btn ${dark ? "text-white " : "text-dark"}`}>EN</button>
+          <button onClick={() => i18n.changeLanguage('uz')} className={`btn ${dark ? "text-white " : "text-dark"}`}>UZ</button>
         </div>
         <button
             className="navbar-toggler"
