@@ -4,9 +4,11 @@ import PersonalGrowthPage from "./pages/PersonalGrowthPage.jsx";
 import CommonTaskPage from "./pages/CommonTaskPage.jsx";
 import HomeTaskPage from "./pages/HomeTaskPage.jsx";
 import {useState} from "react";
+import {useTranslation} from "react-i18next";
 
 function App() {
   const [dark, setDark] = useState(false)
+  const {t, i18n} = useTranslation()
   const toggleBg = ()=>{
       setDark(prev => !prev)
   }
@@ -29,6 +31,11 @@ function App() {
         >
           {dark ? "☀ Light" : "🌙 Dark"}
         </button>
+        <div>
+          <button onClick={() => i18n.changeLanguage('ru')} className="btn">RU</button>
+          <button onClick={() => i18n.changeLanguage('en')} className="btn">EN</button>
+          <button onClick={() => i18n.changeLanguage('uz')} className="btn">UZ</button>
+        </div>
         <button
             className="navbar-toggler"
             type="button"
@@ -42,19 +49,19 @@ function App() {
 
             <li className="nav-item mx-2">
               <Link className="nav-link fw-bold " to="/common-task">
-                Common Task
+                {t('common_task')}
               </Link>
             </li>
 
             <li className="nav-item mx-2">
               <Link className="nav-link fw-bold" to="/personal-growth">
-                Personal Growth
+                {t('personal_growth')}
               </Link>
             </li>
 
             <li className="nav-item mx-2">
               <Link className="nav-link fw-bold" to="/home-task">
-                Home Task
+                {t('home_task')}
               </Link>
             </li>
 
