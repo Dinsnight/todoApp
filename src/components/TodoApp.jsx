@@ -1,9 +1,9 @@
 import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function TodoApp() {
+function TodoApp({tasks}) {
   const [todos, setTodos] = useState(() => {
-    const saved = localStorage.getItem("tasks");
+    const saved = localStorage.getItem(tasks);
     return saved ? JSON.parse(saved) : [];
   });
   const [value, setValue] = useState('');
@@ -20,13 +20,13 @@ function TodoApp() {
     const newTodos = [newTask, ...todos];
     setTodos(newTodos);
     setValue("");
-    localStorage.setItem("tasks", JSON.stringify(newTodos));
+    localStorage.setItem(tasks, JSON.stringify(newTodos));
   };
 
   const removeTask = (index) => {
     const newTodos = todos.filter((_, i) => i !== index);
     setTodos(newTodos);
-    localStorage.setItem("tasks", JSON.stringify(newTodos));
+    localStorage.setItem(tasks, JSON.stringify(newTodos));
   };
 
   const toggleCompleted = (index) => {
@@ -34,7 +34,7 @@ function TodoApp() {
       i === index ? { ...item, completed: !item.completed } : item
     );
     setTodos(newTodos);
-    localStorage.setItem("tasks", JSON.stringify(newTodos));
+    localStorage.setItem(tasks, JSON.stringify(newTodos));
   };
 
   return (
