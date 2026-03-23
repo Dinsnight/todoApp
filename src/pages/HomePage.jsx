@@ -7,8 +7,12 @@ function HomePage(){
         <div>
             <h1>{t('home_page')}</h1>
             <p>📝 {t("todo_app")}</p>
-            <img src="./public/logo.png" className="img-fluid w-50"/>
-            <Link to="/personal-growth" className="btn btn-outline-info">{t("personal_growth")}</Link>
+            <div className="d-flex align-items-center gap-3 justify-content-around">
+                <img src={"https://i.pinimg.com/1200x/a2/24/38/a224382797c87db66c8f06e8d61e57f4.jpg"}
+                     className="img-fluid w-50 rounded-bottom-circle"/>
+                <Link to="/personal-growth" className="btn btn-outline-info">{t("personal_growth")}</Link>
+            </div>
+
         </div>
     )
 }
